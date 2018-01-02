@@ -36,7 +36,7 @@ public class JPAConfig {
     public DataSource getDataSource(){
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/vehicle_db?useSSL=false");
+        ds.setUrl("jdbc:mysql://localhost:3306/car-tracker_db?useSSL=false");
         ds.setUsername("root");
         ds.setPassword("root");
         return ds;
