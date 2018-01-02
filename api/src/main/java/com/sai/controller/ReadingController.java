@@ -16,8 +16,6 @@ public class ReadingController {
     @CrossOrigin()
     @RequestMapping(method = RequestMethod.POST)
     public Reading create(@RequestBody Reading reading) {
-        System.out.println("*************Inside create of post mapping in ReadingsController");
-        System.out.println("Reading:" + reading);
         return service.create(reading);
     }
 }
