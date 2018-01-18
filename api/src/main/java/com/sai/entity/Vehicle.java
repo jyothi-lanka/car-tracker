@@ -2,9 +2,13 @@ package com.sai.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.util.Date;
 
 @Entity
+@NamedQueries({ @NamedQuery(name="Vehicle.findAll",
+                            query = "SELECT v from Vehicle v ")})
 public class Vehicle {
 
     @Id

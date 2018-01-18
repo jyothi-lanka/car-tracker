@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/vehicles")
 public class VehicleController {
 
@@ -18,5 +19,10 @@ public class VehicleController {
     @RequestMapping(method = RequestMethod.PUT)
     public List<Vehicle> bulkLoad(@RequestBody List<Vehicle>  vehicles) {
         return service.bulkLoad(vehicles);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Vehicle> getAllVehicles() {
+        return service.findAll();
     }
 }

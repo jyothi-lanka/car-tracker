@@ -1,11 +1,12 @@
 package com.sai.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@NamedQueries({ @NamedQuery(name="Alert.findByVin",
+                            query = "SELECT a from Alert a where a.vin=:paramVin")})
 public class Alert {
 
     @Id
@@ -14,13 +15,17 @@ public class Alert {
     private String vin;
     private String priority;
     private String message;
+    private Date createdDate;
 
     public Alert(String vin, String priority, String message){
         this.vin = vin;
         this.priority = priority;
         this.message = message;
         this.id = UUID.randomUUID().toString();
+        this.createdDate = new Date();
     }
+
+    public Alert(){}
 
     public String getId() {
         return id;
@@ -54,13 +59,22 @@ public class Alert {
         this.message = message;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
     @Override
     public String toString() {
         return "Alert{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", vin='" + vin + '\'' +
                 ", priority='" + priority + '\'' +
                 ", message='" + message + '\'' +
+                ", createdDate=" + createdDate +
                 '}';
     }
 }

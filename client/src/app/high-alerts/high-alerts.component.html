@@ -1,0 +1,18 @@
+
+<h1> High Alerts count for vehicles </h1>
+<table class="table table-striped table-bordered table-hover css-serial">
+  <thead>
+  <tr>
+    <th>S.No</th>
+    <th>Vin</th>
+    <th>High Alerts Count</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of data">
+    <td></td>
+    <td>{{row.vin}}</td>
+    <td>{{row.count}}</td>
+  </tr>
+  </tbody>
+</table>
