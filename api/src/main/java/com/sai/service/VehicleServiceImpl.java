@@ -34,4 +34,11 @@ public class VehicleServiceImpl implements VehicleService {
         vehicles.forEach(vehicle ->createdVehicles.add(insertOrUpdate(vehicle)));
         return createdVehicles;
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<Vehicle> findAll() {
+        return repository.findAll();
+    }
+
 }
